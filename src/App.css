@@ -1,0 +1,115 @@
+body {
+    font-family: Roboto;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+/*  animation: App-logo-spin infinite 20s linear;
+  height: 80px;*/
+}
+
+hr {
+  border: 3px solid #333;
+}
+
+.App-header {
+  background-color: #222;
+  /*height: 150px;*/
+  padding: 20px;
+  color: white;
+}
+
+header.App-header > img {
+  float: left;
+  margin-top: 15px;
+}
+
+.App-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+span.field {
+  font-size: large;
+  display: inline-block;
+  padding: 5px;
+}
+
+p > span.fieldLabel {
+  font-size: large;
+  width: 200px;
+}
+
+div > span.fieldLabel {
+  font-size: large;
+  font-weight: bold;
+  width: 200px;
+}
+
+span.historyItemMessage {
+  font-size: large;
+  display: block;
+  padding: 5px;
+}
+
+span.historyItemUser {
+  font-size: medium;
+  display: inline-block;
+  padding: 5px;
+}
+
+span.historyItemDate {
+  font-size: medium;
+  display: inline-block;
+  padding: 5px;
+  width: 150px;
+}
+
+span.historyItemLink {
+  font-size: small;
+  display: block;
+  padding: 5px;
+}
+
+div.container {
+  margin-top: 25px;
+  width: 500px;
+}
+
+div.historyItem {
+  margin-top: 10px;
+  padding: 25px;
+  border: 1px dotted #ccc;
+}
+
+div.row {
+  padding: 5px;
+}
+
+div.row > label {
+  display: inline-block;
+  width: 120px;
+}
+
+div.row > input[type=text], div.row > input[type=password] {
+  font-size: large;
+  padding: 3px 10px;
+}
+
+div.row > button.login {
+  font-size: large;
+  padding: 10px 30px;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
