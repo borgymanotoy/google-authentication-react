@@ -9,7 +9,7 @@ class App extends Component {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Ticket Conversation</h1>
+                <h1 className="App-title">Authentication with JWT Token Demo Application</h1>
             </header>
             <div className="container d-flex h-100">
                 <div className="row align-self-center w-100">
