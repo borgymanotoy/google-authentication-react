@@ -10,7 +10,7 @@ class LoginForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {action:'https://testrt.peplink.com/api/login', username: '', password: '', token: '', redirectUrl: 'https://testrt.peplink.com/api/authorizations/google'};
+        this.state = {action:'http://localhost:8001/api/login', username: '', password: '', token: '', redirectUrl: 'http://localhost:8001/api/authorizations/google'};
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,16 +29,45 @@ class LoginForm extends Component {
             baseURL: this.state.action,
             timeout: 600000
         });
-
-
-
         event.preventDefault();
     }
 
     render() {
 
         const responseGoogle = (response) => {
-            console.log(response);
+            var googleUser = {};
+            googleUser.googleId = response.googleId;
+            googleUser.tokenId = response.tokenId;
+            googleUser.accessToken = response.accessToken;
+  
+            var profile = {};
+            profile.googleId = response.profileObj.googleId;
+            profile.name = response.profileObj.name;
+            profile.givenName = response.profileObj.givenName;
+            profile.familyName = response.profileObj.familyName;
+            profile.email = response.profileObj.email;
+            profile.imageUrl = response.profileObj.imageUrl;
+            googleUser.profileObj = profile;
+
+            var token = {};
+            token.tokenType = response.tokenObj.token_type;
+            token.accessToken = response.tokenObj.access_token;
+            token.idToken = response.tokenObj.id_token;
+            token.idpId = response.tokenObj.idpId;
+            token.loginHint = response.tokenObj.login_hint;
+            token.scope = response.tokenObj.scope;
+            token.firstIssuedAt = response.tokenObj.first_issued_at;
+            token.expiresAt = response.tokenObj.expires_at;
+            token.expiresIn = response.tokenObj.expires_in;
+            googleUser.tokenObj = token;
+
+            axios.post('http://localhost:8001/api/authorizations/google', googleUser)
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                alert(error);
+              });
         }
 
         return(
